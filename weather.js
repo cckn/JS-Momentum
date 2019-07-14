@@ -1,8 +1,7 @@
 const COORDS = "coords";
 
-
 function saveCoords(coordsObj) {
-    localStorage.setItem(COORDS, JSON.stringify(coordsObj))
+  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
 
 function handleGeoSuccess(position) {
@@ -13,7 +12,7 @@ function handleGeoSuccess(position) {
     latitude,
     longitude
   };
-  saveCoords(coordsObj)
+  saveCoords(coordsObj);
 }
 
 function handleGeoError() {
