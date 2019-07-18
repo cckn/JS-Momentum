@@ -1,12 +1,14 @@
-const weatherLabel = document.querySelector(".js-weather")
+const weatherLabel = document.querySelector(".js-weather");
 
 const API_KEY = "9009787807337227972f9da130b6c08b";
 const COORDS = "coords";
 
 function getWeatherData(latitude, longitude) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
-  )
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+
+  console.log(url);
+  
+  fetch(url)
     .then(res => {
       return res.json();
     })
@@ -16,8 +18,8 @@ function getWeatherData(latitude, longitude) {
       const country = json.sys.country;
       const city = json.name;
 
-      weatherLabel.innerText = `${temperature}℃, ${humidity}％ @ ${city}, ${country}`
-      
+      weatherLabel.innerText = `${temperature}℃, ${humidity}％ @ ${city}, ${country}`;
+
       console.log(temperature, humidity, country, city);
       console.log(json);
     });
